@@ -26,10 +26,9 @@ export const App = () => {
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-
-      {isLoading && !error && <div>Loading contacts...</div>}
       {contacts.length > 0 && <Filter />}
-      <ContactList />
+      {isLoading && !error && <div>Loading contacts...</div>}
+      {!isLoading && !error && <ContactList />}
       <GlobalStyle />
       <Toaster />
     </div>

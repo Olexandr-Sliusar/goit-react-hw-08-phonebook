@@ -1,11 +1,12 @@
 import { List } from './ContactList.styled';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import { selectContacts, selectFilter, selectIsLoading } from 'redux/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const filterText = useSelector(selectFilter);
+  const isLoading = useSelector(selectIsLoading);
 
   const getFlteredContacts = () => {
     const normalizedFilter = filterText.toLowerCase();
@@ -14,7 +15,7 @@ export const ContactList = () => {
     );
   };
 
-  if (getFlteredContacts().length === 0) {
+  if (getFlteredContacts().length === 0 && !isLoading) {
     return <p> There is no contacts</p>;
   }
 
