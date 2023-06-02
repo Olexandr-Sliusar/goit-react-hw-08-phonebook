@@ -1,16 +1,37 @@
+import { GlobalStyle } from './GlobalStyle';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
+import { useDispatch, useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
+import {
+  selectContacts,
+  selectError,
+  selectIsLoading,
+} from '../redux/selectors';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
+
 export const App = () => {
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <h2>Contacts</h2>
+
+      {isLoading && !error && <div>Loading contacts...</div>}
+      {contacts.length > 0 && <Filter />}
+      <ContactList />
+      <GlobalStyle />
+      <Toaster />
     </div>
   );
 };
