@@ -1,9 +1,10 @@
-import { List } from './ContactList.styled';
+import { List } from '@mui/material';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter, selectIsLoading } from 'redux/selectors';
+import { selectContacts, selectIsLoading } from 'redux/contacts/selectors';
+import { selectFilter } from 'redux/filter/selectors';
 
-export const ContactList = () => {
+export const ContactList = ({ showSnake }) => {
   const contacts = useSelector(selectContacts);
   const filterText = useSelector(selectFilter);
   const isLoading = useSelector(selectIsLoading);
@@ -20,9 +21,13 @@ export const ContactList = () => {
   }
 
   return (
-    <List>
+    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {getFlteredContacts().map(contactItem => (
-        <ContactItem key={contactItem.id} contactItem={contactItem} />
+        <ContactItem
+          key={contactItem.id}
+          contactItem={contactItem}
+          showSnake={showSnake}
+        />
       ))}
     </List>
   );

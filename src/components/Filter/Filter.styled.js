@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import { Field as FormikField } from 'formik';
 
 export const FormField = styled.label`
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 8px;
-  background-color: #589300;
-  color: #ffffff;
+  align-items: 'flex-end';
+`;
+
+export const Field = styled(FormikField)`
+  &svg {
+    margin-right: 100px;
+  }
 `;

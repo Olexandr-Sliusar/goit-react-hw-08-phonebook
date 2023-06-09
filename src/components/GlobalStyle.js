@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
+
 body{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,6 +23,7 @@ code {
   font-size: 16px;
   color: #010101;
 }
+
 
 #root > div{        
 
