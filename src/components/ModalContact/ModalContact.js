@@ -25,7 +25,11 @@ export const ModalContact = ({ onClose, edit, values, showSnake }) => {
         {!edit ? (
           <ContactForm onClose={onClose} showSnake={showSnake} />
         ) : (
-          <EditForm onClose={onClose} values={values} showSnake={showSnake} />
+          <EditForm
+            onClose={onClose}
+            valuesContact={values}
+            showSnake={showSnake}
+          />
         )}
       </Modal>
     </Overlay>,
