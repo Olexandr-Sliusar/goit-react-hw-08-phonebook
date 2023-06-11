@@ -12,7 +12,7 @@ export const AuthNav = () => {
           color: 'inherit',
           textDecoration: 'none',
           '&:hover': {
-            color: 'text.secondary',
+            color: '#ffffffbf',
           },
         }}
       >
@@ -26,7 +26,7 @@ export const AuthNav = () => {
           color: 'inherit',
           textDecoration: 'none',
           '&:hover': {
-            color: 'text.secondary',
+            color: '#ffffffbf',
           },
         }}
       >

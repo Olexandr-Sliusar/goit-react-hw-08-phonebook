@@ -67,10 +67,10 @@ export const EditForm = ({ onClose, valuesContact, showSnake }) => {
         <Button
           variant="contained"
           type="submit"
-          aria-label="Add contact"
+          aria-label="Update contact"
           sx={{ marginTop: '20px' }}
         >
-          Add contact
+          Update contact
         </Button>
       </Form>
     </Formik>
